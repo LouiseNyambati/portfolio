@@ -12,39 +12,61 @@
   <link type="text/css" rel="stylesheet" href="assets/style.css">
 
 </head>
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
+<body>
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#myPage">Louise</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#myPage">ABOUT ME</a></li>
-        <li><a href="#band">APPLICATIONS</a></li>
-        <li><a href="#tour">CONTACT</a></li>
-        <li class="dropdown">
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
 
-<!-- Container (The Band Section) -->
-<div id="band" class="container text-center">
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Software Developer
+                    </a>
+                </li>
+                <li>
+                    <a href="#about">About</a>
+                </li>
+                <li>
+                    <a href="#portfolio">Portfolio</a>
+                </li>
+                <li>
+                  <a href="https://drive.google.com/open?id=0B5eTRBjNgvenZnBBdGFpb2NXWG8" target="_blank" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="label">Email</span></a>
+
+                </li>
+                <li>
+                    <a href="https://github.com/LouiseNyambati" class="icon fa-github" target="_blank" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="label">Github</span></a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/lnyambati/" class="icon fa-linkedin" target="_blank" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="label">LikedIn</span></a>
+                </li>
+                <li>
+                    <a href="mailto:louisen1993@gmail.com?subject=Hey Louise" class="icon fa-envelope" target="_blank" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><span class="label">Email</span></a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+              <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">Louise Nyambati</a>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+
+<!-- Container (The About Section) -->
+<div id="about" class="container text-center">
   <h3>ABOUT ME</h3>
   <p><em>I love coding!</em></p>
   <p>My name is Louise Nyambati. I'm a coding bootcamp graduate.
     If loving websites with a clean design is wrong, I don’t want to be right. I went into Web Development for the constant growth of the industry. There are always new technologies to learn, and I want to learn them all. I'm ready to take on any challenge that comes my way and work for a company who's dream I believe in. I went attended the Northwestern Coding Bootcamp and completed the program July 2017.
     With the curriculum I learned, I am now a full stack developer. </p>
   <br>
-  <div class="row">
+  <div id="portfolio" class="row">
     <div class="col-sm-4">
       <p class="text-center"><strong>Whistle</strong></p><br>
       <a href="#demo" data-toggle="collapse">
@@ -91,35 +113,6 @@
     </div>
   </div>
 </div>
-
-<!-- Container (TOUR Section) -->
-<div id="tour" class="bg-1">
-  <div class="container">
-    <h3 class="text-center">CONTACT</h3>
-
-    <div class="row text-center">
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="assets/images/github.png" alt="Github" width="400" height="300">
-          <a href="https://github.com/LouiseNyambati" class="button">My Github</a>
-        </div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="assets/images/resume.png" alt="Resume" width="400" height="300">
-          <a href="https://drive.google.com/open?id=0B5eTRBjNgvenZnBBdGFpb2NXWG8" class="button">My Resume</a></div>
-      </div>
-      <div class="col-sm-4">
-        <div class="thumbnail">
-          <img src="assets/images/linkedin.png" alt="Linkedin" width="400" height="300">
-          <a href="https://www.linkedin.com/in/lnyambati/" class="button">My Linkedin</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-    </div>
   </div>
 </div>
   <br>
@@ -138,30 +131,11 @@
 $(document).ready(function(){
   // Initialize Tooltip
   $('[data-toggle="tooltip"]').tooltip();
-
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "") {
-
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
+  $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
   });
+
 })
 </script>
 </body>
